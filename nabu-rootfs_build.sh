@@ -65,13 +65,16 @@ cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/xiaomi-nabu-debs_$2/*
 mkdir rootdir/firstboot
 cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/checksum*/checksum* rootdir/firstboot
 cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/firstboot/* rootdir/firstboot/
+cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/modules6110.deb rootdir/tmp/
 chroot rootdir systemctl unmask nabu-grub
 chroot rootdir systemctl enable nabu-grub
 chroot rootdir chmod +x /firstboot/run.sh
 chroot rootdir dpkg -i /tmp/linux-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/firmware-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/alsa-xiaomi-nabu.deb
+chroot rootdir dpkg -i /tmp/modules6110.deb
 rm rootdir/tmp/*-xiaomi-nabu.deb
+rm rootdir/tmp/modules6110.deb
 
 
 #EFI

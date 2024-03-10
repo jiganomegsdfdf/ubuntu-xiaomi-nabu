@@ -1,0 +1,12 @@
+kernel=kernel
+ramdisk=ramdisk
+page_size=4096
+kernel_size=10571089
+ramdisk_size=0
+base_addr=0x00000000
+kernel_offset=0x00008000
+ramdisk_offset=0x01000000
+tags_offset=0x00000100
+cmd_line='console=tty3 root= rw rootwait quiet splash loglevel=0 logo.nologo vt.global_cursor_default=0
+ plymouth.ignore-serial-consoles'
+board=""

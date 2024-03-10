@@ -5,7 +5,7 @@ This repo contians scripts for automatic building of ubuntu rootfs and kernel fo
 
 # Where do i get needed files?
 Actually, just go to the "Actions" tab, find one of latest builds and download files named **rootfs_(Desktop Environment you want)_(Kernel version you want)** and **nabu-boot_(Partition name)**
-<br>for update download file named **xiaomi-nabu-debs_(Kernel version you want)**
+<br>For update download file named **xiaomi-nabu-debs_(Kernel version you want)**
 
 ## Update info
 - Unpack .zip you downloaded
@@ -16,7 +16,7 @@ Actually, just go to the "Actions" tab, find one of latest builds and download f
 
 # ⚠️ Read before INSTALL (Not tested info)
   If you want to stay on legacy boot(6.1.10 kernel(most stable by my eye)) follow this instructions:
- - (Optionaly)Skip 4th install step
+ - (Optionaly) Skip 4th install step
  - Boot into system(it will break himself)
  - Boot to fastboot
  - Flash boot again

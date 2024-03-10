@@ -15,7 +15,7 @@ Actually, just go to the "Actions" tab, find one of latest builds and download f
   <br>**Second method**: grub-install and grub-mkconfig -o /boot/grub/grub.cfg
 
 # ⚠️ Read before INSTALL (Not tested info)
-  If you want to stay on legacy boot(6.1.10 kernel(most stable by my eye)) follow these instructions:
+  If you want to stay on legacy boot(6.1.10 kernel(most stable by my eye)) follow this instructions:
  - Skip 4th install step
  - Boot into system(it will break himself)
  - Boot to fastboot

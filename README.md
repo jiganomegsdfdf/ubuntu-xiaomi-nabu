@@ -14,7 +14,7 @@ Actually, just go to the "Actions" tab, find one of latest builds and download f
   <br>**First method**: just replace your old kernel version with the new kernel version in /boot/grub/grub.cfg
   <br>**Second method**: grub-install and grub-mkconfig -o /boot/grub/grub.cfg
 
-# Read before install (Not tested info)
+# ⚠️ Read before install (Not tested info)
   If you want to stay on legacy boot(6.1.10 kernel(most stable by my eye)) follow these instructions:
  - Skip 4th step
  - Boot into system(it will break himself)

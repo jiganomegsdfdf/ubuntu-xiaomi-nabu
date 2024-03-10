@@ -46,7 +46,7 @@ jobs:
         with:
           pattern: nabu-boot_*
       - name: Checksums
-        run: sudo md5sum /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/boot-by-partition-build/*/*.img | cut -d ' ' -f 1 >> ${{ github.workspace }}/boot-by-partition-build/checksums.txt
+        run: sudo md5sum /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/nabu-boot_*/*.img | cut -d ' ' -f 1 >> ${{ github.workspace }}/boot-by-partition-build/checksums.txt
 
       - name: Upload checksums
         uses: actions/upload-artifact@v4.0.0

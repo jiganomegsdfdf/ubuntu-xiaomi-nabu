@@ -20,6 +20,7 @@ Actually, just go to the "Actions" tab, find one of latest builds and download f
  - Boot into system(it will break himself)
  - Boot to fastboot
  - Flash boot again
+ - Reboot to system
   
 ## Install info
 - Unpack .zip files you downloaded

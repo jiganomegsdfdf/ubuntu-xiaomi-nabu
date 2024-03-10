@@ -62,7 +62,9 @@ sed -i '/ConditionKernelVersion/d' rootdir/lib/systemd/system/pd-mapper.service
 
 cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/xiaomi-nabu-debs_$2/*-xiaomi-nabu.deb rootdir/tmp/
 
+mkdir rootdir/firstboot
 cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/checksum*/checksum* rootdir/firstboot
+cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/firstboot/* rootdir/firstboot/
 chroot rootdir dpkg -i /tmp/linux-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/firmware-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/alsa-xiaomi-nabu.deb

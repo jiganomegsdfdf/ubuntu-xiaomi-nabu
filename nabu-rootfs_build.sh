@@ -77,10 +77,6 @@ chroot rootdir apt install -y grub-efi-arm64
 sed --in-place 's/^#GRUB_DISABLE_OS_PROBER=false/GRUB_DISABLE_OS_PROBER=false/' rootdir/etc/default/grub
 sed --in-place 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_DEFAULT=""/' rootdir/etc/default/grub
 
-#this done on device for now
-#grub-install
-#grub-mkconfig -o /boot/grub/grub.cfg
-
 #create fstab!
 echo "PARTLABEL=linux / ext4 errors=remount-ro,x-systemd.growfs 0 1
 PARTLABEL=esp /boot/efi vfat umask=0077 0 1" | tee rootdir/etc/fstab

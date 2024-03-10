@@ -1,0 +1,9 @@
+[Unit]
+Description=(First startup only) Install grub,write boot, disable itself, reboot
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /firstboot/run.sh
+
+[Install]
+WantedBy=multi-user.target

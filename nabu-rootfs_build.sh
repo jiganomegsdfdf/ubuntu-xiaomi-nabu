@@ -87,7 +87,8 @@ sed --in-place 's/^#GRUB_DISABLE_OS_PROBER=false/GRUB_DISABLE_OS_PROBER=false/' 
 sed --in-place 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_DEFAULT=""/' rootdir/etc/default/grub
 
 #create fstab!
-echo "PARTLABEL=linux / ext4 errors=remount-ro,x-systemd.growfs 0 1
+echo "PARTLABEL=linux / ext4 errors=remount-ro,x-systemd.growfs,x-systemd.device-timeout=10s,nofail 0 1
+echo "PARTLABEL=pmos / ext4 errors=remount-ro,x-systemd.growfs,x-systemd.device-timeout=10s,nofail 0 1
 PARTLABEL=esp /boot/efi vfat umask=0077 0 1" | tee rootdir/etc/fstab
 
 mkdir rootdir/var/lib/gdm

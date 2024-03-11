@@ -25,7 +25,7 @@ Actually, just go to the "Actions" tab, find one of latest builds and download f
 ## Install info
 - Unpack .zip files you downloaded
 - Unpack extracted rootfs.7z (there you take rootfs.img)
-- rootfs.img must be flashed to the partition named "linux"
+- rootfs.img must be flashed to the partition named as nabu-boot you chosen, but only text after "_"
 - Partition for efi boot must be named "esp"(Only non-legacy boot)
 - Flash boot that you have under nabu-boot archive
 

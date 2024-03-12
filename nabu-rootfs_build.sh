@@ -89,7 +89,7 @@ sed --in-place 's/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/GRUB_CMDLINE_LINUX_D
 #create fstab!
 echo "PARTLABEL=linux / ext4 errors=remount-ro,x-systemd.growfs,nofail 0 1" >> rootdir/etc/fstab
 echo "PARTLABEL=pmos / ext4 errors=remount-ro,x-systemd.growfs,nofail 0 1" >> rootdir/etc/fstab
-echo "PARTLABEL=esp /boot/efi vfat umask=0077 0 1" >> rootdir/etc/fstab
+echo "PARTLABEL=esp /boot/efi vfat umask=0077,nofail 0 1" >> rootdir/etc/fstab
 
 mkdir rootdir/var/lib/gdm
 touch rootdir/var/lib/gdm/run-initial-setup

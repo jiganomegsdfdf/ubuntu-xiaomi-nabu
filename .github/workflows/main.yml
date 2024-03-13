@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build boot
-        run: sudo sed -i 's/root=/root=/dev/sda32/g' ./boot-by-partition-build/boot32/img_info && sudo cat ./boot-by-partition-build/boot32/img_info && sudo mkdir ./boot-by-partition-build/boot32/ramdisk && sudo chmod +x ./boot-by-partition-build/* && ./boot-by-partition-build/mkboot ./boot-by-partition-build/boot32 ./boot-by-partition-build/boot.img
+        run: sudo cat ./boot-by-partition-build/boot32/img_info && sudo mkdir ./boot-by-partition-build/boot32/ramdisk && sudo chmod +x ./boot-by-partition-build/* && ./boot-by-partition-build/mkboot ./boot-by-partition-build/boot32 ./boot-by-partition-build/boot.img
 
       - name: Upload deb packages
         uses: actions/upload-artifact@v4.0.0

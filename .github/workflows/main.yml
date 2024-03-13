@@ -17,22 +17,23 @@ on:
 jobs:
   boot:
     runs-on: ubuntu-latest
-    strategy:
-            matrix:
-                partlabel: [linux]
+    #strategy:
+    #        matrix:
+    #            partlabel: [linux]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
       - name: Build boot
-        run: sudo sed -i 's/root=/root=PARTLABEL=${{ matrix.partlabel }}/g' ./boot-by-partition-build/boot32/img_info && sudo cat ./boot-by-partition-build/boot32/img_info && sudo mkdir ./boot-by-partition-build/boot32/ramdisk && sudo chmod +x ./boot-by-partition-build/* && ./boot-by-partition-build/mkboot ./boot-by-partition-build/boot32 ./boot-by-partition-build/boot.img
+        run: sudo sed -i 's/root=/root=/dev/sda32/g' ./boot-by-partition-build/boot32/img_info && sudo cat ./boot-by-partition-build/boot32/img_info && sudo mkdir ./boot-by-partition-build/boot32/ramdisk && sudo chmod +x ./boot-by-partition-build/* && ./boot-by-partition-build/mkboot ./boot-by-partition-build/boot32 ./boot-by-partition-build/boot.img
 
       - name: Upload deb packages
         uses: actions/upload-artifact@v4.0.0
         with:
           # Artifact name
-          name: nabu-boot_${{ matrix.partlabel }}
+          name: nabu-boot 
+          #_${{ matrix.partlabel }}
           path: ${{ github.workspace }}/boot-by-partition-build/*.img
   checksums:
     # The type of runner that the job will run on

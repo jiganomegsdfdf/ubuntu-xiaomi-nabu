@@ -89,7 +89,7 @@ jobs:
             matrix:
                 desktop: [ubuntu-desktop, plasma-desktop]
                 kernel: [6.7, 6.8]
-                release: [23.10]#, 24.04]
+                release: ["23.10"]#, "24.04"]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it

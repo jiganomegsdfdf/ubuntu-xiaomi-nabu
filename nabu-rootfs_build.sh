@@ -50,8 +50,6 @@ chroot rootdir apt upgrade -y
 #u-boot-tools breaks grub installation
 chroot rootdir apt install -y bash-completion sudo ssh nano u-boot-tools- $1
 
-#chroot rootdir gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts-only-mounted true
-
 
 
 #Device specific
@@ -65,20 +63,23 @@ cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/xiaomi-nabu-debs_$2/*
 mkdir rootdir/firstboot
 cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/checksum*/checksum* rootdir/firstboot
 cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/firstboot/* rootdir/firstboot/
-cp rootdir/firstboot/nabu-grub.service /etc/systemd/system/nabu-grub.service
-cp rootdir/firstboot/nabu-grub.service /lib/systemd/system/nabu-grub.service
-chmod 644 /etc/systemd/system/nabu-grub.service
+chroot rootdir cp -rf /firstboot/nabu-grub.service /lib/systemd/system/nabu-grub.service
+chroot rootdir chmod 644 /etc/systemd/system/nabu-grub.service
 cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/modules6110.deb rootdir/tmp/
+cp /home/runner/work/ubuntu-xiaomi-nabu/ubuntu-xiaomi-nabu/firmware6110.deb rootdir/tmp/
 chroot rootdir systemctl unmask nabu-grub
 chroot rootdir systemctl enable nabu-grub
 chroot rootdir chmod +x /firstboot/run.sh
 chroot rootdir dpkg -i /tmp/linux-xiaomi-nabu.deb
-chroot rootdir dpkg -i /tmp/firmware-xiaomi-nabu.deb
+chroot rootdir dpkg -i /tmp/firmware6110.deb
+chroot rootdir dpkg -i --force-overwrite /tmp/firmware-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/alsa-xiaomi-nabu.deb
 chroot rootdir dpkg -i /tmp/modules6110.deb
 rm rootdir/tmp/*-xiaomi-nabu.deb
 rm rootdir/tmp/modules6110.deb
 
+
+chroot rootdir gsettings set org.gnome.shell.extensions.dash-to-dock show-mounts-only-mounted true || true
 
 #EFI
 chroot rootdir apt install -y grub-efi-arm64
@@ -111,9 +112,6 @@ umount rootdir/proc
 umount rootdir/dev/pts
 umount rootdir/dev
 umount rootdir
-
 rm -d rootdir
-
-echo 'cmdline for legacy boot: "root=PARTLABEL=linux"'
 
 7zz a rootfs.7z rootfs.img

@@ -13,6 +13,8 @@ else
 	  target_partition="boot_b"
 	else
 	  echo "Error: MD5 checksum of /dev/disk/by-partlabel/boot_a and boot_b does not match any checksum in /firstboot/checksum"
+   	  systemctl disable nabu-grub
+	  systemctl mask nabu-grub
 	  exit 1
 	fi
 fi

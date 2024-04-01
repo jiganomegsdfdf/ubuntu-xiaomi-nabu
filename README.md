@@ -26,6 +26,7 @@ Actually, just go to the "Actions" tab, find one of latest builds and download f
 - Unpack .zip files you downloaded
 - Unpack extracted rootfs.7z (there you take rootfs.img)
 - rootfs.img must be flashed to the partition named "linux"
+- <br>**USE "dd if="path to rootfs.img" of=/dev/block/platform/soc/1d84000.ufshc/by-name/linux" BECAUSE FLASHING USING FASTBOOT RESULT IN BROKEN LINUX FILESYSTEM**
 - Partition for efi boot must be named "esp"(Only non-legacy boot)
 - Flash boot that you have under nabu-boot archive
 
